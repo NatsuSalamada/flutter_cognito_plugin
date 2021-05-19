@@ -99,7 +99,7 @@ class SignInResult {
       : signInState = SignInState.values[msg[0]],
         parameters = (msg[1] == null) ? null : Map<String, String>.from(msg[1]),
         userCodeDeliveryDetails =
-            UserCodeDeliveryDetails.fromMsg(msg.sublist(2));
+        UserCodeDeliveryDetails.fromMsg(msg.sublist(2));
 }
 
 /// The result of a sign up action. Check the confirmation state and delivery details to proceed.
@@ -118,7 +118,7 @@ class SignUpResult {
   SignUpResult.fromMsg(List msg)
       : confirmationState = msg[0],
         userCodeDeliveryDetails =
-            UserCodeDeliveryDetails.fromMsg(msg.sublist(1));
+        UserCodeDeliveryDetails.fromMsg(msg.sublist(1));
 }
 
 /// The result of a forgot password action

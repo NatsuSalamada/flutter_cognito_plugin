@@ -44,9 +44,9 @@ dynamic convertException(dynamic e) {
     case "CodeDeliveryFailureException":
       return CodeDeliveryFailureException(message, details);
     case "CodeMismatchException":
-      return CodeMismatchException(message, details);
+      return CodeMismatchException(message, details,code:"CodeMismatchException");
     case "ExpiredCodeException":
-      return ExpiredCodeException(message, details);
+      return ExpiredCodeException(message, details,code:"CodeMismatchException");
     case "GroupExistsException":
       return GroupExistsException(message, details);
     case "InternalErrorException":
@@ -84,11 +84,11 @@ dynamic convertException(dynamic e) {
     case "UserLambdaValidationException":
       return UserLambdaValidationException(message, details);
     case "UserNotConfirmedException":
-      return UserNotConfirmedException(message, details);
+      return UserNotConfirmedException(message, details, code: "UserNotConfirmedException");
     case "UserNotFoundException":
-      return UserNotFoundException(message, details);
+      return UserNotFoundException(message, details, code: "UserNotFoundException");
     case "UsernameExistsException":
-      return UsernameExistsException(message, details);
+      return UsernameExistsException(message, details, code: "UsernameExistsException");
     case "UnknownException":
       return UnknownException(message, details);
     case "NotSignedInException":

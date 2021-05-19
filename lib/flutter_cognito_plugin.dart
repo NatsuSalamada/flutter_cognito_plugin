@@ -60,10 +60,10 @@ class Cognito {
   /// This is useful for other plugins/apps that want
   /// to leverage the auto retry capabilities of this plugin.
   static Future invokeMethodWithChannel(
-    MethodChannel channel,
-    String method, [
-    dynamic arguments,
-  ]) async {
+      MethodChannel channel,
+      String method, [
+        dynamic arguments,
+      ]) async {
     var tries = 0;
     while (true) {
       tries += 1;
@@ -134,10 +134,10 @@ class Cognito {
   }
 
   static Future<SignUpResult> signUp(
-    String username,
-    String password, [
-    Map<String, String> userAttributes,
-  ]) async {
+      String username,
+      String password, [
+        Map<String, String> userAttributes,
+      ]) async {
     return SignUpResult.fromMsg(
       await invokeMethod("signUp", {
         "username": username ?? "",
@@ -148,9 +148,9 @@ class Cognito {
   }
 
   static Future<SignUpResult> confirmSignUp(
-    String username,
-    String confirmationCode,
-  ) async {
+      String username,
+      String confirmationCode,
+      ) async {
     return SignUpResult.fromMsg(
       await invokeMethod("confirmSignUp", {
         "username": username ?? "",
@@ -177,9 +177,9 @@ class Cognito {
   }
 
   static Future<UserState> federatedSignIn(
-    String providerName,
-    String token,
-  ) async {
+      String providerName,
+      String token,
+      ) async {
     var value = await invokeMethod("federatedSignIn", {
       "providerName": providerName ?? "",
       "token": token ?? "",
@@ -195,16 +195,6 @@ class Cognito {
     );
   }
 
-  static Future<void> changePassword(
-    String oldPassword,
-    String newPassword,
-  ) async {
-    var res = await invokeMethod("changePassword", {
-      "oldPassword": oldPassword ?? "",
-      "newPassword": newPassword ?? "",
-    });
-  }
-
   static Future<ForgotPasswordResult> forgotPassword(String username) async {
     return ForgotPasswordResult.fromMsg(
       await invokeMethod("forgotPassword", {"username": username ?? ""}),
@@ -212,10 +202,10 @@ class Cognito {
   }
 
   static Future<ForgotPasswordResult> confirmForgotPassword(
-    String username,
-    String newPassword,
-    String confirmationCode,
-  ) async {
+      String username,
+      String newPassword,
+      String confirmationCode,
+      ) async {
     return ForgotPasswordResult.fromMsg(
       await invokeMethod("confirmForgotPassword", {
         "username": username ?? "",
@@ -256,8 +246,8 @@ class Cognito {
   }
 
   static Future<List<UserCodeDeliveryDetails>> updateUserAttributes(
-    Map<String, String> userAttributes,
-  ) async {
+      Map<String, String> userAttributes,
+      ) async {
     List uL = await invokeMethod("updateUserAttributes", {
       "userAttributes": userAttributes ?? {},
     });
@@ -269,9 +259,9 @@ class Cognito {
   }
 
   static Future<void> confirmUpdateUserAttribute(
-    String attributeName,
-    String confirmationCode,
-  ) async {
+      String attributeName,
+      String confirmationCode,
+      ) async {
     await invokeMethod("confirmUpdateUserAttribute", {
       "attributeName": attributeName,
       "confirmationCode": confirmationCode,

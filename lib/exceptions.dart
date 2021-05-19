@@ -1,7 +1,7 @@
 class CognitoException implements Exception {
-  String message, details;
+  String message, details, code;
 
-  CognitoException(this.message, this.details);
+  CognitoException(this.message, this.details,{this.code});
 
   @override
   String toString() {
@@ -20,13 +20,13 @@ class CodeDeliveryFailureException extends CognitoException {
 }
 
 class CodeMismatchException extends CognitoException {
-  CodeMismatchException(String message, String details)
-      : super(message, details);
+  CodeMismatchException(String message, String details, {String code})
+      : super(message, details,code: code);
 }
 
 class ExpiredCodeException extends CognitoException {
-  ExpiredCodeException(String message, String details)
-      : super(message, details);
+  ExpiredCodeException(String message, String details, {String code})
+      : super(message, details, code:code);
 }
 
 class GroupExistsException extends CognitoException {
@@ -120,18 +120,18 @@ class UserLambdaValidationException extends CognitoException {
 }
 
 class UserNotConfirmedException extends CognitoException {
-  UserNotConfirmedException(String message, String details)
-      : super(message, details);
+  UserNotConfirmedException(String message, String details, {String code})
+      : super(message, details,code: code);
 }
 
 class UserNotFoundException extends CognitoException {
-  UserNotFoundException(String message, String details)
-      : super(message, details);
+  UserNotFoundException(String message, String details, {String code})
+      : super(message, details, code: code);
 }
 
 class UsernameExistsException extends CognitoException {
-  UsernameExistsException(String message, String details)
-      : super(message, details);
+  UsernameExistsException(String message, String details, {String code})
+      : super(message, details, code: code);
 }
 
 class UnknownException extends CognitoException {
