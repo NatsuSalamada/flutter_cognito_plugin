@@ -65,8 +65,8 @@ class InvalidUserPoolConfigurationException extends CognitoException {
 }
 
 class LimitExceededException extends CognitoException {
-  LimitExceededException(String message, String details)
-      : super(message, details);
+  LimitExceededException(String message, String details,{String code})
+      : super(message, details, code: code);
 }
 
 class MfaMethodNotFoundException extends CognitoException {

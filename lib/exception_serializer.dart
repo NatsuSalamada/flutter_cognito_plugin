@@ -62,7 +62,7 @@ dynamic convertException(dynamic e) {
     case "InvalidUserPoolConfigurationException":
       return InvalidUserPoolConfigurationException(message, details);
     case "LimitExceededException":
-      return LimitExceededException(message, details);
+      return LimitExceededException(message, details, code: "LimitExceededException");
     case "MfaMethodNotFoundException":
       return MfaMethodNotFoundException(message, details);
     case "NotAuthorizedException":
