@@ -37,6 +37,11 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -45,9 +50,4 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-cognitoauth:2.18.0'
     implementation(name: 'amazon-chime-sdk', ext: 'aar')
     implementation(name: 'amazon-chime-sdk-media', ext: 'aar')
-}
-
-compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
 }
